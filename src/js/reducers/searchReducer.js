@@ -1,8 +1,5 @@
 const initialState = {
-  Title: '',
-  Year: '',
-  Plot: '',
-  Poster: null,
+  movies: [],
   error: false
 }
 
@@ -11,10 +8,7 @@ export default function searchReducer(state = initialState, action) {
     case 'GET_MOVIES': {
       return {
         ...state,
-        Title: action.payload.data["Title"],
-        Year: action.payload.data["Year"],
-        Plot: action.payload.data["Plot"],
-        Poster: action.payload.data["Poster"]
+        movies: action.payload.data
       }
     }
 
