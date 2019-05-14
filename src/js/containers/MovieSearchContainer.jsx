@@ -24,6 +24,8 @@ class MovieSearchContainer extends React.Component {
   }
 
   render() {
+    console.log(this.props.movie)
+
     var results = this.props.movie.movies.map(movie => {
       return (
         <div className="card" style={{ margin: '20px' }}>
@@ -35,6 +37,7 @@ class MovieSearchContainer extends React.Component {
               </div>
               <div className="col-8">
                 <p className="card-text">{movie["Year"]}</p>
+                <p className="card-text">{movie["Plot"]}</p>
                 <a href="#" className="btn btn-primary">More information</a>
               </div>
             </div>

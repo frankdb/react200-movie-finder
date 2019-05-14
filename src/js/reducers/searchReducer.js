@@ -8,7 +8,7 @@ export default function searchReducer(state = initialState, action) {
     case 'GET_MOVIES': {
       return {
         ...state,
-        movies: action.payload.data.Search
+        movies: action.payload
       }
     }
 
