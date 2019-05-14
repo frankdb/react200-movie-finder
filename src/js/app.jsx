@@ -8,7 +8,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className="container">
+        <div className="container" style={{ width: '800px' }}>
           <Route exact path='/' component={MovieSearchContainer} />
           <Route path='/movie/:id' component={MovieDetailContainer} />
         </div>

@@ -10,7 +10,6 @@ class MovieSearchContainer extends React.Component {
     super(props);
     this.state = {
       searchedTerm: null,
-      movies: []
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -25,18 +24,28 @@ class MovieSearchContainer extends React.Component {
   }
 
   render() {
-    console.log('props', this.props.movie)
-    console.log('props inner', this.props.movie.movies)
-
-    var results = this.props.movie.movies.map(flick => {
+    var results = this.props.movie.movies.map(movie => {
       return (
-        <h3>{flick["Title"]}</h3>
+        <div className="card" style={{ margin: '20px' }}>
+          <h5 className="card-header">{movie["Title"]}</h5>
+          <div className="card-body">
+            <div className="row">
+              <div className="col-4">
+                <img src={movie["Poster"] === "N/A" ? './placeholder.jpg' : movie["Poster"]} style={{ width: '175px' }} />
+              </div>
+              <div className="col-8">
+                <p className="card-text">{movie["Year"]}</p>
+                <a href="#" className="btn btn-primary">More information</a>
+              </div>
+            </div>
+          </div>
+        </div>
       )
     });
 
     return (
       <div>
-        <h1 className="text-center">Movie Search Container</h1>
+        <h1 className="text-center">Search Movies</h1>
         <div class="form-group">
           <input type="text" className="form-control" id="search" placeholder="Enter movie" value={this.state.searchedTerm} onChange={this.handleChange} />
           <button type="submit" className="btn btn-primary" style={{ marginTop: '5px' }} onClick={this.handleClick}>Submit</button>
