@@ -20,3 +20,10 @@ export const getMovies = movie => {
       .catch(err => dispatch({ type: 'GET_MOVIES_FAIL' }))
   }
 }
+
+export const getMovie = id => {
+  return dispatch => {
+    axios.get("http://www.omdbapi.com/?i=" + id + "&apikey=8730e0e")
+      .then(data => dispatch({ type: 'GET_MOVIE', payload: data }))
+  }
+}

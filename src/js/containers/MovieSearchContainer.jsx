@@ -1,8 +1,6 @@
 import React from 'react';
 import { getMovies } from '../actions/searchActions'
 import { connect } from 'react-redux';
-import store from '../index.jsx'
-import SearchResult from '../components/SearchResult';
 import PropTypes from 'prop-types';
 
 class MovieSearchContainer extends React.Component {
@@ -36,7 +34,7 @@ class MovieSearchContainer extends React.Component {
                 <img src={movie["Poster"] === "N/A" ? './placeholder.jpg' : movie["Poster"]} style={{ width: '175px' }} />
               </div>
               <div className="col-8">
-                <p className="card-text">{movie["Year"]}</p>
+                <p className="card-text font-weight-bold">{movie["Year"]}</p>
                 <p className="card-text">{movie["Plot"]}</p>
                 <a href="#" className="btn btn-primary">More information</a>
               </div>
@@ -48,7 +46,7 @@ class MovieSearchContainer extends React.Component {
 
     return (
       <div>
-        <h1 className="text-center">Search Movies</h1>
+        <h1 className="text-center">Movie Finder</h1>
         <div class="form-group">
           <input type="text" className="form-control" id="search" placeholder="Enter movie" value={this.state.searchedTerm} onChange={this.handleChange} />
           <button type="submit" className="btn btn-primary" style={{ marginTop: '5px' }} onClick={this.handleClick}>Submit</button>

@@ -1,5 +1,6 @@
 const initialState = {
   movies: [],
+  movie: [],
   error: false
 }
 
@@ -9,6 +10,13 @@ export default function searchReducer(state = initialState, action) {
       return {
         ...state,
         movies: action.payload
+      }
+    }
+
+    case 'GET_MOVIE': {
+      return {
+        ...state,
+        movie: action.payload
       }
     }
 
