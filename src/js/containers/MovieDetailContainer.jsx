@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { getMovie } from '../actions/searchActions'
+import { getMovie } from '../actions/searchActions';
+import { Link } from 'react-router-dom';
 
 class MovieDetailContainer extends React.Component {
   constructor(props) {
@@ -17,7 +18,7 @@ class MovieDetailContainer extends React.Component {
       <div className="container">
         <h1 className="text-center">Movie Detail Container</h1>
 
-        <p className="font-weight-bold">Go Back</p>
+        <Link to="/">Go Back</Link>
         <div className="row" style={{ margin: '20px' }}>
           <div className="col-4">
             <img src={typeof this.props.movie.data === "undefined" ? null : this.props.movie.data["Poster"] === "N/A" ? './placeholder.jpg' : this.props.movie.data["Poster"]} style={{ width: '275px' }} />

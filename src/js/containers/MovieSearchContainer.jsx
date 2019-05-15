@@ -2,6 +2,7 @@ import React from 'react';
 import { getMovies } from '../actions/searchActions'
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 class MovieSearchContainer extends React.Component {
   constructor(props) {
@@ -36,7 +37,7 @@ class MovieSearchContainer extends React.Component {
               <div className="col-8">
                 <p className="card-text font-weight-bold">{movie["Year"]}</p>
                 <p className="card-text">{movie["Plot"]}</p>
-                <a href="#" className="btn btn-primary">More information</a>
+                <Link to={`/movie/${movie["imdbID"]}`} className="btn btn-primary">More information</Link>
               </div>
             </div>
           </div>
