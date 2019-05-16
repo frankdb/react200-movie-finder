@@ -12,7 +12,7 @@ export const getMovies = movie => {
       .then(data => data.data.Search)
       .then(movies =>
         Promise.all(movies.map(movie =>
-          axios.get("http://www.omdbapi.com/?i=" + movie.imdbID + "&apikey=8730e0e")
+          axios.get("https://www.omdbapi.com/?i=" + movie.imdbID + "&apikey=8730e0e")
             .then(response => response.data)
         ))
           .then(data => dispatch({ type: 'GET_MOVIES', payload: data }))
