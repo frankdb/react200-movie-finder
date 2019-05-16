@@ -5,6 +5,9 @@ const Nightmare = require('nightmare');
 const expect = require('chai').expect;
 const axios = require('axios');
 
+import { getMovies, getMovie } from '../src/js/actions/searchActions';
+import { searchReducer } from '../src/js/reducers/searchReducer';
+
 let nightmare;
 
 const app = express();
@@ -24,13 +27,29 @@ describe('express', () => {
   it('should have the correct page title', () =>
     nightmare
       .goto(url)
-      .evaluate(() => document.querySelector('body').innerText)
+      .evaluate(() => document.querySelector('h1').innerText)
       .end()
       .then((text) => {
-        expect(text).to.equal('Hello World');
+        expect(text).to.equal('Movie Finder');
       })
   );
 
   it('returns the correct status code', () => axios.get(url)
     .then(response => expect(response.status === 200)));
+});
+
+describe('actions', () => {
+
+  it('should return a dispatch function for getMovies', (done) => {
+    const movie = getMovies('Terminator')
+    expect(movie).to.be.a('function');
+    done();
+  })
+
+  it('should return a dispatch function for getMovie', (done) => {
+    const movie = getMovie('Terminator')
+    expect(movie).to.be.a('function');
+    done();
+  })
+
 });
