@@ -6,7 +6,7 @@ const axios = require('axios');
 
 export const getMovies = movie => {
   return dispatch => {
-    axios.get("http://www.omdbapi.com/?s=" +
+    axios.get("https://www.omdbapi.com/?s=" +
       movie +
       "&apikey=8730e0e&type=movie")
       .then(data => data.data.Search)
@@ -23,7 +23,7 @@ export const getMovies = movie => {
 
 export const getMovie = id => {
   return dispatch => {
-    axios.get("http://www.omdbapi.com/?i=" + id + "&apikey=8730e0e")
+    axios.get("https://www.omdbapi.com/?i=" + id + "&apikey=8730e0e")
       .then(data => dispatch({ type: 'GET_MOVIE', payload: data }))
   }
 }
