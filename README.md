@@ -1,6 +1,6 @@
 # React 200 Movie Finder
 
-This app grabs movie data from the OMDB api and displays the results of the search. It uses React Router to navigate to a Movie Detail Screen where you can find out more information about the movie. You can visit the page on: https://fb-react200-movie-finder.herokuapp.com/#/
+This app grabs movie data from the OMDB api and displays the results of the search. It uses React Router to navigate to a Movie Detail Screen where you can find out more information about the movie. You can visit the page at: https://fb-react200-movie-finder.herokuapp.com/#/
 
 ## Getting Started
 
