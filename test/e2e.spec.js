@@ -34,16 +34,6 @@ describe('express', () => {
       })
   );
 
-  it('should have a search input', () =>
-    nightmare
-      .goto(url)
-      .evaluate(() => document.querySelector('#search'))
-      .end()
-      .then((search) => {
-        expect(search).to.exist;
-      })
-  );
-
   it('returns the correct status code', () => axios.get(url)
     .then(response => expect(response.status === 200)));
 });
